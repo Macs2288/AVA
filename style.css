@@ -1,0 +1,319 @@
+body {
+    margin: 0;
+    height: 100%;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    background-color: #b1d6d1;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+    /* Світла тема */
+    body.light {
+        background-color: #b1d6d1;
+        color: #000000;
+        
+    }
+
+    /* Темна тема */
+    body.dark {
+        background-color: #1c1f24;
+        color: #ffffff;
+    }
+
+/* Кнопка перемикання теми */
+.theme-toggle-container {
+    position: fixed;
+    top: 20px;
+    right: 5px;
+    width: 30px;
+    height: 30px;
+    margin-right: 100px;
+}
+
+.slider-container {
+    position: relative;
+    width: 35px;
+    height: 25px;
+    background-color: #e0e0e0;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    top: -480px;
+    left: 600px;
+}
+
+/* Повзунок */
+.slider {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background-color: #4caf50;
+    border-radius: 50%;
+    transform: translate(0, -50%);
+    transition: all 0.3s ease; /* Анімація переміщення та трансформації */
+    cursor: pointer;
+}
+
+    .slider.transformed {
+        width: 70px; /* Збільшується ширина */
+        height: 70px; /* Збільшується висота */
+        background-color: #388e3c; /* Змінюється колір */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Додається тінь */
+    }
+
+    .moon {
+        margin-left: 3px;
+     user-select: none;
+        margin-top: 2px;
+    }
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #4caf50;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+    button:hover {
+        background-color: #388e3c;
+    }
+
+.header {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin-top:100px;
+   margin-left:20px;
+   gap:10px;
+
+}
+.circle {
+   position:relative;
+  display: inline-block;
+
+   
+}
+    .circle img {
+        border-radius: 100%;
+        user-select: none;
+        width: 40%;
+        height: 40%;
+        margin-top: 150px;
+        margin-left: 200px;
+        box-shadow: 0px 0px 30px 0px #00f6ff;
+        transition: transform 0.3s ease;
+        --tiltX: 0deg;
+        --tiltY: 0deg;
+        transform: rotateX(var(--tiltX)) rotateY(var(--tiltY));
+        
+    }
+
+.coin {
+    border-radius: 100%;
+    width: 5%;
+    user-select: none;
+    text-shadow: 0px 0px 6px rgba(0, 255, 158);
+    font-size: 30px;
+    animation: none;
+    margin-left: -100px;
+}
+
+  @keyframes coinBounce {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-50px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+  }
+
+
+lion{
+    border-radius: 0%;
+    width:40%;
+    height:40%;
+    margin-top: 150px;
+    margin-left:200px;
+    box-shadow: 0px 0px 30px 0px #00f6ff;
+
+
+}
+.circle::before {
+    content: '';
+    position: absolute;
+    top: 67.3%;
+    left: 49.8%;
+    width: 220px; /* Трохи більше за розмір логотипа */
+    height: 220px;
+    border-radius: 50%;
+    background: rgba(0, 150, 255, 0.6); /* Колір світлового ореолу */
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    animation: pulse 3s infinite;
+}
+
+
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.4;
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.4);
+        opacity: 0.0;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.6;
+    }
+}
+
+
+
+.plus-one {
+    position:absolute;
+    font-family: Inter;
+    text-shadow: 0px 0px 2px rgba(0, 255, 158);
+    font-size: 24px;
+    font-weight: 800;
+    background: linear-gradient(180deg, rgba(0, 255, 158));
+    color: #e28e23;
+   
+    -webkit-text-fill-color: transparent;
+    pointer-events: none;
+    user-select:none;
+    animation:move-up 1s forwards;
+}
+
+@keyframes move-up {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    100% {
+        opacity: 0%;
+        transform: translateY(-50px);
+    }
+}
+.score {
+    color: #e28e23;
+    text-align: center;
+    font-size: 26px;
+    font-weight: 800;
+    user-select: none;
+    margin-left: 20px;
+    font-weight: bolder;
+    font-size: 24px;
+    transition: color 0.3s ease;
+    text-shadow: 1px 1px 1px rgba(0, 255, 158);
+    font-family: Impact;
+    font-weight: 50;
+    
+}
+
+ .score.light {
+     color: #e28e23;
+ }
+ .score.dark {
+     color: #00f6ff;
+ }
+
+.button-container {
+    display: flex;
+    gap: 100px;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.nav-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    width: 100px;
+    height: 50px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.nav-button:hover {
+    background-color: #388e3c;
+}
+
+
+
+#energy {
+    font-size: 14px;
+    margin-bottom: 10px;
+    font-family: Impact;
+    margin-left: 310px;
+}
+
+
+
+#energyBar {
+    width: 50%;
+    background-color: #f3f3f3;
+    border: 1px solid #ccc;
+    margin-left: 170px;
+    border-radius: 20px;
+}
+
+#energyLevel {
+    height: 20px;
+    background-color: green;
+    width: 100%; /* Початкова ширина енергії (100%) */
+    transition: width 0.5s ease; /* Анімація при зміні ширини */
+border-radius: 20px;
+}
+
+#progress-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 20px auto;
+    margin-top: -518.5px;
+    margin-left: 190.3px;
+    pointer-events: none;
+}
+
+#progress-circle {
+    transform: rotate(-90deg); /* Повертаємо коло, щоб починалося зверху */
+    pointer-events: none;
+}
+
+#progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    user-select: none;
+}
+
+#progress-bar {
+    transition: stroke-dashoffset 0.5s ease-in-out;
+}
+
